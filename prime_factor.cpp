@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string>
 
 void	prime_factor(int x)
 {
@@ -39,10 +40,17 @@ void	prime_factor(int x)
 
 int	main()
 {
-	int	x;
+	std::string	line;
+	int			x;
 
 	std::cout << "X = ";
-	std::cin >> x;
+	std::getline(std::cin, line);
+	std::istringstream iss(line);
+	if (!(iss >> x))
+	{
+		std::cout << "Invalid input: not a number!" << std::endl;
+		return 1;
+	}
 	prime_factor(x);
 
 	return 0;
